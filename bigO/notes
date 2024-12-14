@@ -1,0 +1,84 @@
+Rules for calculating the big O
+
+1. Worst Case
+2. Remove Constants
+3. Different terms for inputs
+4. Drop Non Dominants
+
+
+Ex for Rule1:
+
+names := []{"ram", "lakshman", "sachin"}
+
+find sachin
+
+Best case O(1)
+Worst case O(3)
+
+Consider worst option
+
+Ex for Rule2:
+
+{
+a:=1
+b:=3
+
+for i, v := range ar {
+    a + b + i
+}
+
+for i, v := range ar {
+    a - b - i
+}
+
+}
+O(2 + n + n) = O(2 +2n) // Ignore 2 here in 2n and just 2
+
+Keep it O(n)
+
+Ex for Rule3:
+
+compress(ar1, ar2){
+for i, v := range ar1 {
+    a + b + i
+}
+
+for i, v := range ar2 {
+    a + b + i
+}
+
+}
+
+In the above we cannot say O(2n) and ignore 2 since array size differs based on input
+
+Keep it as O(m + n)
+
+compress(ar1, ar2){
+
+for i, v := range ar1 {
+for i, v := range ar2 {
+    a + b + i
+  }
+ }
+}
+
+Keep it as O(m * n)
+
+Ex for Rule4:
+
+O(n^2+3x+100+n/2)
+
+In the above example ignore 3x, 100 and x/2 consider dominant one n^2,
+In scale n^2 increases largely when inputs grows large
+
+Keep it as O(n^2)
+
+
+
+
+
+
+
+
+
+
